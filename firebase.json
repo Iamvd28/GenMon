@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "coding-game-platform/frontend/build",
+    "public": "coding-game-platform/frontend/build/web",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,5 +12,8 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "functions": {
+    "source": "functions"
   }
 }
