@@ -1,0 +1,28 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    - avoid_print
+    - avoid_empty_else
+    - avoid_relative_lib_imports
+    - avoid_type_to_string
+    - cancel_subscriptions
+    - close_sinks
+    - control_flow_in_finally
+    - empty_statements
+    - hash_and_equals
+    - literal_only_boolean_expressions
+    - no_duplicate_case_values
+    - prefer_void_to_null
+    - test_types_in_equals
+    - throw_in_finally
+    - unnecessary_statements
+    - unrelated_type_equality_checks
+    - valid_regexps
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  errors:
+    invalid_annotation_target: ignore 
