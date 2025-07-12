@@ -1,0 +1,6 @@
+{"level":"info","message":"Sample data initialized for in-memory database","service":"genmon4-backend","timestamp":"2025-06-29T17:59:03.578Z"}
+{"level":"info","message":"GenMon4 Backend Server running on port 3000","service":"genmon4-backend","timestamp":"2025-06-29T17:59:03.618Z"}
+{"level":"info","message":"Using in-memory database (no MongoDB required)","service":"genmon4-backend","timestamp":"2025-06-29T17:59:03.619Z"}
+{"level":"info","message":"Sample data initialized for in-memory database","service":"genmon4-backend","timestamp":"2025-06-29T18:27:01.341Z"}
+{"level":"info","message":"GenMon4 Backend Server running on port 3000","service":"genmon4-backend","timestamp":"2025-06-29T18:27:01.365Z"}
+{"level":"info","message":"Using in-memory database (no MongoDB required)","service":"genmon4-backend","timestamp":"2025-06-29T18:27:01.366Z"}
