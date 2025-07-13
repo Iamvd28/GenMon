@@ -8,8 +8,9 @@
     "react-router-dom": "^6.14.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "vite build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
@@ -22,5 +23,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
+    "vite": "^7.0.4"
   }
 }
