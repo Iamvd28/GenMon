@@ -13,6 +13,7 @@ const authRoutes = require('./routes/auth');
 const contestRoutes = require('./routes/contests');
 const submissionRoutes = require('./routes/submissions');
 const leaderboardRoutes = require('./routes/leaderboard');
+const gameRoutes = require('./routes/game');
 
 // Import utilities
 const { calculateCompositeScore } = require('./utils/scoring');
@@ -136,6 +137,11 @@ initializeSampleData();
 
 // Create Express app
 const app = express();
+
+// CORS middleware (MUST be at the very top, before anything else)
+app.use(cors());
+app.options('*', cors());
+
 const server = http.createServer(app);
 
 // Create WebSocket server
@@ -176,32 +182,6 @@ app.use(helmet());
 app.use(compression());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-// CORS configuration
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    const allowedOrigins = [
-      'http://localhost:3000',
-      'http://localhost:8080',
-      'http://10.0.2.2:3000',
-      'http://10.0.2.2:8080',
-      'http://127.0.0.1:3000',
-      'http://127.0.0.1:8080'
-    ];
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(null, true); // Allow all origins for development
-    }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-}));
 
 // Rate limiting
 const limiter = rateLimit({
@@ -245,6 +225,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/contests', contestRoutes);
 app.use('/api/submissions', submissionLimiter, submissionRoutes);
 app.use('/api/leaderboard', leaderboardRoutes);
+app.use('/api/game', gameRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

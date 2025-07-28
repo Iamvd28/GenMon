@@ -1,0 +1,14 @@
+services:
+  piston:
+    image: ghcr.io/engineer-man/piston
+    container_name: piston-api
+    ports:
+      - "2000:2000"
+    volumes:
+      - piston-data:/piston
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+  redis_data:
+  piston-data:
